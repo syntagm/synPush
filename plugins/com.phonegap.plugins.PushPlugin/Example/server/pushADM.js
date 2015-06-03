@@ -154,5 +154,3 @@ function postMessage(accessToken, registrationID, payload){
     req.end();
 
 }
-
-
