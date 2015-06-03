@@ -7,9 +7,9 @@
     <feature name="PushPlugin">
         <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
-    <name>synPush</name>
+    <name>synPUSH</name>
     <description>
-        Push notification for Agri
+        Push notification for Agrit.
     </description>
     <author email="syntagm@icon.co.za" href="http://www.syntagm.co.za">
         synPush Team

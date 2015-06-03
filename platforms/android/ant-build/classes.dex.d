@@ -12,6 +12,15 @@ C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\com\plugin\gc
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\com\plugin\gcm\GCMIntentService.class \
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\com\plugin\gcm\PushHandlerActivity.class \
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\com\plugin\gcm\PushPlugin.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\BuildConfig.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\HelloWorld.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\Manifest$permission.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\Manifest.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\R$attr.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\R$drawable.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\R$string.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\R$xml.class \
+C:\Users\user\.cordova\synPush\platforms\android\ant-build\classes\za\co\syntagm\synPush\R.class \
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\dexedLibs\classes-036ebafb85b9cda87575046f8de736e2.jar \
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\dexedLibs\gcm-b4f6b81adf65dda68e59768020bf6ca2.jar \
 C:\Users\user\.cordova\synPush\platforms\android\ant-build\dexedLibs\android-support-v13-8ebffbce9dd520742ccc08938ba0a6ac.jar \

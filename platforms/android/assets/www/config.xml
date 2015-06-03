@@ -6,14 +6,14 @@
         id        = "za.co.syntagm.synPush"
         version   = "1.0.0">
 
-    <name>synPush</name>
+    <name>synPUSH</name>
 
     <description>
-        Push notification for Agri.
+        Push notification for Agrit.
     </description>
 
     <author href="http://www.syntagm.co.za" email="syntagm@icon.co.za">
-        PhoneGap Team
+        synPush Team
     </author>
 
     <!--

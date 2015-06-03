@@ -1,4 +1,4 @@
-C:\Users\user\.cordova\synPush\platforms\android\ant-gen\com\phonegap\helloworld\R.java \
+C:\Users\user\.cordova\synPush\platforms\android\ant-gen\za\co\syntagm\synPush\R.java \
  : C:\Users\user\.cordova\synPush\platforms\android\res\drawable\icon.png \
 C:\Users\user\.cordova\synPush\platforms\android\res\drawable-hdpi\icon.png \
 C:\Users\user\.cordova\synPush\platforms\android\res\drawable-ldpi\icon.png \
