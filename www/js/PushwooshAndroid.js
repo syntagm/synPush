@@ -42,7 +42,7 @@ function registerPushwooshAndroid() {
 	);
 
 	//initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
-	pushNotification.onDeviceReady({ projectid: "60756016005", appid : "4FC89B6D14A655.46488481" });
+	pushNotification.onDeviceReady({ projectid: "505908946299", appid : "30609-5E497" });
 
 	//register for push notifications
 	pushNotification.registerDevice(
@@ -66,7 +66,7 @@ function onPushwooshAndroidInitialized(pushToken)
 	console.warn('push token: ' + pushToken);
 
 	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
-	
+
 	//if you need push token at a later time you can always get it from Pushwoosh plugin
 	pushNotification.getPushToken(
 		function(token)
@@ -81,7 +81,7 @@ function onPushwooshAndroidInitialized(pushToken)
 			console.warn('Pushwoosh HWID: ' + token);
 		}
 	);
-	
+
 	pushNotification.getTags(
 		function(tags)
 		{
@@ -92,24 +92,24 @@ function onPushwooshAndroidInitialized(pushToken)
 			console.warn('get tags error: ' + JSON.stringify(error));
 		}
 	);
-	 
+
 
 	//set multi notificaiton mode
 	//pushNotification.setMultiNotificationMode();
 	//pushNotification.setEnableLED(true);
-	
+
 	//set single notification mode
 	//pushNotification.setSingleNotificationMode();
-	
+
 	//disable sound and vibration
 	//pushNotification.setSoundType(1);
 	//pushNotification.setVibrateType(1);
-	
+
 	pushNotification.setLightScreenOnNotification(false);
-	
+
 	//setting list tags
 	//pushNotification.setTags({"MyTag":["hello", "world"]});
-	
+
 	//settings tags
 	pushNotification.setTags({deviceName:"hello", deviceId:10},
 		function(status) {
