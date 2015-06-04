@@ -20,6 +20,7 @@ registrationIds.push('APA91bGY2tzLk18EXtYLsDYutkjVcu5JsW63GfRnA-IOqcM7266V5B86qd
 /**
  * Parameters: message-literal, registrationIds-array, No. of retries, callback-function
  sender.send(message, registrationIds, 4, function (result) { */
+ /* sender.send(message, registrationIds, 4, function (err, result) { */
  sender.send(message, registrationIds, 4, function (err, result) {
     console.log(result);
 });

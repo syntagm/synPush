@@ -30,7 +30,6 @@ C:\Users\user\.cordova\synPush\platforms\android\assets\www\spec.html \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\css\index.css \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\img\logo.png \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\js\index.js \
-C:\Users\user\.cordova\synPush\platforms\android\assets\www\js\notify.js \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\plugins\com.phonegap.plugins.PushPlugin \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\plugins\com.phonegap.plugins.PushPlugin\www \
 C:\Users\user\.cordova\synPush\platforms\android\assets\www\plugins\com.phonegap.plugins.PushPlugin\www\PushNotification.js \
