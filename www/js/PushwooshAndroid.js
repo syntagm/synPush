@@ -17,48 +17,81 @@
  * under the License.
  */
 
-function registerPushwooshAndroid() {
+//function registerPushwooshAndroid() {
 
- 	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+ 	//var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
 
 	//set push notifications handler
-	document.addEventListener('push-notification',
-		function(event)
-		{
-            var title = event.notification.title;
-            var userData = event.notification.userdata;
+	//document.addEventListener('push-notification',
+	//	function(event)
+	//	{
+  //          var title = event.notification.title;
+  //          var userData = event.notification.userdata;
 
             //dump custom data to the console if it exists
-            if(typeof(userData) != "undefined") {
-				console.warn('user data: ' + JSON.stringify(userData));
-			}
+  //          if(typeof(userData) != "undefined") {
+//				console.warn('user data: ' + JSON.stringify(userData));
+//			}
 
 			//and show alert
-			alert(title);
+//			alert(title);
 
 			//stopping geopushes
 			//pushNotification.stopGeoPushes();
-		}
-	);
+//		}
+//	);
 
 	//initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
-	pushNotification.onDeviceReady({ projectid: "505908946299", appid : "30609-5E497" });
+//	pushNotification.onDeviceReady({ projectid: "505908946299", appid : "30609-5E497" });
 
 	//register for push notifications
-	pushNotification.registerDevice(
-		function(token)
-		{
-			alert(token);
+//	pushNotification.registerDevice(
+//		function(token)
+//		{
+	//		alert(token);
 			//callback when pushwoosh is ready
-			onPushwooshAndroidInitialized(token);
-		},
-		function(status)
-		{
-			alert("failed to register: " +  status);
-		    console.warn(JSON.stringify(['failed to register ', status]));
-		}
-	);
+//			onPushwooshAndroidInitialized(token);
+//		},
+//		function(status)
+//		{
+//			alert("failed to register: " +  status);
+//		    console.warn(JSON.stringify(['failed to register ', status]));
+//		}
+//	);
+//}
+
+
+function initPushwoosh()
+{
+    var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+
+    //set push notifications handler
+    document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+        var userData = event.notification.userdata;
+
+        if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+
+        alert(title);
+    });
+
+    //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+    pushNotification.onDeviceReady({ projectid: "505908946299", pw_appid : "30609-5E497" });
+
+    //register for pushes
+    pushNotification.registerDevice(
+        function(status) {
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
 }
+
 
 function onPushwooshAndroidInitialized(pushToken)
 {
