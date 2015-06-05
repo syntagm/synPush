@@ -17,11 +17,7 @@
  * under the License.
  */
 
- function initPushwoosh(function init() {
-    document.addEventListener("deviceready", initPushwoosh, true);
-
-    //rest of the code
-})
+ function initPushwoosh()
  {
      var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
 
