@@ -17,52 +17,101 @@
  * under the License.
  */
 
-function initPushwoosh() {
+ function initPushwoosh(function init() {
+    document.addEventListener("deviceready", initPushwoosh, true);
+
+    //rest of the code
+})
+ {
+     var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+
+     //set push notifications handler
+     document.addEventListener('push-notification', function(event) {
+         var title = event.notification.title;
+         var userData = event.notification.userdata;
+
+         if(typeof(userData) != "undefined") {
+             console.warn('user data: ' + JSON.stringify(userData));
+         }
+
+         alert(title);
+     });
+
+     //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+     pushNotification.onDeviceReady({ projectid: "505908946299", pw_appid : "30609-5E497" });
+
+     //register for pushes
+     pushNotification.registerDevice(
+         function(status) {
+             var pushToken = status;
+             console.warn('push token: ' + pushToken);
+         },
+         function(status) {
+             console.warn(JSON.stringify(['failed to register ', status]));
+         }
+     );
+ }
+
+function onPushwooshAndroidInitialized(pushToken)
+{
+	//output the token to the console
+	console.warn('push token: ' + pushToken);
+
 	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
-	if(device.platform == "Android")
-	{
-		registerPushwooshAndroid();
-	}
 
-	if(device.platform == "iPhone" || device.platform == "iOS")
-	{
-		registerPushwooshIOS();
-	}
+	//if you need push token at a later time you can always get it from Pushwoosh plugin
+	pushNotification.getPushToken(
+		function(token)
+		{
+			console.warn('push token: ' + token);
+		}
+	);
 
-	if (device.platform == "Win32NT") {
-	    registerPushwooshWP();
-	}
+	//and HWID if you want to communicate with Pushwoosh API
+	pushNotification.getPushwooshHWID(
+		function(token) {
+			console.warn('Pushwoosh HWID: ' + token);
+		}
+	);
+
+	pushNotification.getTags(
+		function(tags)
+		{
+			console.warn('tags for the device: ' + JSON.stringify(tags));
+		},
+		function(error)
+		{
+			console.warn('get tags error: ' + JSON.stringify(error));
+		}
+	);
+
+
+	//set multi notificaiton mode
+	//pushNotification.setMultiNotificationMode();
+	//pushNotification.setEnableLED(true);
+
+	//set single notification mode
+	//pushNotification.setSingleNotificationMode();
+
+	//disable sound and vibration
+	//pushNotification.setSoundType(1);
+	//pushNotification.setVibrateType(1);
+
+	pushNotification.setLightScreenOnNotification(false);
+
+	//setting list tags
+	//pushNotification.setTags({"MyTag":["hello", "world"]});
+
+	//settings tags
+	pushNotification.setTags({deviceName:"hello", deviceId:10},
+		function(status) {
+			console.warn('setTags success');
+		},
+		function(status) {
+			console.warn('setTags failed');
+		}
+	);
+
+	//Pushwoosh Android specific method that cares for the battery
+	//pushNotification.startGeoPushes();
 }
-
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        initPushwoosh();
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
-};
